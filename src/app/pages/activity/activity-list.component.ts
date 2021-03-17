@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, sortedChanges } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
-import { Activity } from './activity';
+import { Activity } from './Activity';
+
 
 const getObservable = (collection: AngularFirestoreCollection<Activity>) => {
   const subject = new BehaviorSubject({});
