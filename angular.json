@@ -40,24 +40,24 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "./src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/socios",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "index": "./src/index.html",
+            "main": "./src/main.ts",
+            "polyfills": "./src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "./src/favicon.ico",
+              "./src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./src/styles.css"
             ],
             "scripts": []
           },
@@ -65,8 +65,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "./src/environments/environment.ts",
+                  "with": "./src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
