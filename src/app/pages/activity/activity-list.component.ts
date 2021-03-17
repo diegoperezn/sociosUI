@@ -40,5 +40,9 @@ export class ActivityListComponent implements OnInit {
       );
   }
 
+  editTask(activity: Activity): void {
+    console.log(activity);
+  }
+
 
 }
