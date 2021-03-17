@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "socios-f26e5": {
+      "hosting": {
+        "socios": [
+          "socios-f26e5"
+        ]
+      }
+    }
+  }
+}
