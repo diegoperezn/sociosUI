@@ -23,8 +23,9 @@ export class MemberService {
         this.store.collection(this.collection).doc(member.id).set(member);
     }
 
-    get(): Observable<{ id: string; }> {
-        return this.store.collection(this.collection).doc("a").get();
+    get(id: string): Observable<{ id: string; } | undefined> {
+        console.log('looking for member: ' + id)
+        return this.store.collection(this.collection).doc(id).valueChanges({ idField: 'id',  });
     }
 
 }

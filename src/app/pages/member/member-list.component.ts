@@ -6,13 +6,17 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'socios-list',
   template: `
+    <div class="example-button-container">
+      <button mat-fab color="success" aria-label="Example icon button with a delete icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
 
     <mat-form-field>
       <mat-label>Busqueda</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder=".." #input>
     </mat-form-field>
 
-    
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- Position Column -->
@@ -35,6 +39,18 @@ import { MatTableDataSource } from '@angular/material/table';
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> Email </th>
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Edicion </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button [routerLink]="['/socios', element.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -64,7 +80,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class MemberListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'telefono', 'email'];
+  displayedColumns: string[] = ['id', 'name', 'telefono', 'email', 'actions'];
 
   dataSource: MatTableDataSource<Member> = new MatTableDataSource(undefined);
 

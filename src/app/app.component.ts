@@ -13,9 +13,8 @@ import { map, shareReplay } from 'rxjs/operators';
           [opened]="(isHandset$ | async) === false">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
-          
-          <a mat-list-item (click)="drawer.toggle()" routerLink="/actividades" routerLinkActive="activities">Actividades</a>
-          <a mat-list-item (click)="drawer.toggle()" routerLink="/socios" routerLinkActive="activities">Socios</a>
+          <a mat-list-item routerLink="/actividades" routerLinkActive="activities">Actividades</a>
+          <a mat-list-item routerLink="/socios" routerLinkActive="activities">Socios</a>
           <a mat-list-item href="#">Link 3</a>
         </mat-nav-list>
       </mat-sidenav>
