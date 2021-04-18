@@ -1,66 +1,71 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-    selector: 'sidenav',
+    selector: 'app-sidenav',
     template: `
-        <!-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item ">
-                    <a class="nav-link" routerLink="/socios" routerLinkActive="active">Socios</a>
-                    </li>
-                    <li class="nav-item ">
-                    <a class="nav-link" routerLink="/actividades" routerLinkActive="active">Actividades</a>
-                    </li>
-                    <li class="nav-item ">
-                    <a class="nav-link" routerLink="/configuracion" routerLinkActive="active">Configuracion</a>
-                    </li>
-                </ul>
+        <mat-sidenav-container class="sidenav-container">
+            <mat-sidenav #drawer class="sidenav" fixedInViewport
+                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+                [mode]="(isHandset$ | async) ? 'over' : 'side'"
+                [opened]="(isHandset$ | async) === false">
+                <mat-toolbar>Menu</mat-toolbar>
+                <mat-nav-list>
+                <a mat-list-item routerLink="/actividades" routerLinkActive="activities">Actividades</a>
+                <a mat-list-item routerLink="/socios" routerLinkActive="activities">Socios</a>
+                <a mat-list-item routerLink="/configuracion" routerLinkActive="configuracion">configuracion</a>
+                </mat-nav-list>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <mat-toolbar color="primary">
+                <button
+                    type="button"
+                    aria-label="Toggle sidenav"
+                    mat-icon-button
+                    (click)="drawer.toggle()"
+                    *ngIf="isHandset$ | async">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <span>socios</span>
+                </mat-toolbar>
+                <ng-content></ng-content>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    `,
+    styles: [`
+        .container {
+            margin: 2%;
+        }
 
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Saved reports</span>
-                    <a class="link-secondary" href="#" aria-label="Add a new report">
-                    <span data-feather="plus-circle"></span>
-                    </a>
-                </h6>
-                <ul class="nav flex-column mb-2">
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        Current month
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        Last quartersdfa sd 
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        Social engagement
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        Year-end sale
-                    </a>
-                    </li>
-                </ul>
-            </div>
-        </nav> -->
-        <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">JavaScript</a></li>
-  </ul>
-        `
+        .sidenav-container {
+            height: 100%;
+        }
+        
+        .sidenav {
+            width: 200px;
+        }
+        
+        .sidenav .mat-toolbar {
+        background: inherit;
+        }
+        
+        .mat-toolbar.mat-primary {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        }
+    `]
 })
 
-export class SideNavComponent implements OnInit {
-    constructor() { }
+export class SidenavComponent {
 
-    ngOnInit() { }
+    isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+  
+  constructor(private breakpointObserver: BreakpointObserver) {}
 }

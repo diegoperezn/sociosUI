@@ -7,32 +7,34 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBar } from './shared/components/navigate/nav.component'
 import { MemberListComponent } from './pages/member/member-list.component';
 import { ActivityListComponent } from './pages/activity/activity-list.component';
 import { ConfiguracionComponent } from './pages/configuration/configuration.component';
 import { ActivityComponent } from './pages/activity/activity.component';
-import { SideNavComponent } from './shared/components/navigate/sidenav.component';
 import { ActivityDetailsComponent } from './pages/activity/activity-details.component';
-import { NavComponent } from './shared/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatModule } from './shared/mat/mat.module';
+import { MatModule } from './shared/mat.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { SidenavComponent } from './shared/components/navigate/sidenav.component';
+import { MemberEditionComponent } from './pages/member/member-edition/member-edition.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBar,
     MemberListComponent,
     ActivityListComponent,
     ConfiguracionComponent,
-    SideNavComponent,
     ActivityComponent,
     ActivityDetailsComponent,
-    NavComponent
+    SidenavComponent,
+    MemberEditionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +44,12 @@ import { MatSortModule } from '@angular/material/sort';
     LayoutModule,
     BrowserAnimationsModule,
     MatModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

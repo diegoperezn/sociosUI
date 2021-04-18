@@ -37,12 +37,12 @@ import { Activity } from '../../shared/model/activity';
             </div>
         </div> -->
 
-        <mat-card class="card">
+        <mat-card>
             <mat-card-header>
                 <mat-card-title>{{ activity.title }}</mat-card-title>
                 <mat-card-subtitle>{{ activity.description.brief }}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="{{ activity.image }}" alt="Photo of a Shiba Inu">
+            <img mat-card-image [src]="activity.image">
             <mat-card-content>
                 <p>
                     {{ activity.description.full }}
@@ -56,7 +56,8 @@ import { Activity } from '../../shared/model/activity';
     `,
     styles: [`
         .card {
-            max-width: 340px;
+            /* max-width: 340px; */
+            /* margin: 5px; */
         }
     `]
 })

@@ -44,12 +44,18 @@ import { MatTableDataSource } from '@angular/material/table';
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Edicion </th>
         <td mat-cell *matCellDef="let element"> 
-          <button mat-icon-button >
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-icon-button [routerLink]="['/socios', element.id]">
+          <button mat-menu-item [routerLink]="['/socios', element.id]">
             <mat-icon>edit</mat-icon>
           </button>
+        </mat-menu>
+         
         </td>
       </ng-container>
 
