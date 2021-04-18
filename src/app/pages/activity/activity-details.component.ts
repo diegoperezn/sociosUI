@@ -1,44 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, sortedChanges } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
-import { Activity } from './Activity';
+import { Activity } from '../../shared/model/activity';
 
-
-const getObservable = (collection: AngularFirestoreCollection<Activity>) => {
-  const subject = new BehaviorSubject({});
-  collection.valueChanges({ idField: 'id' }).subscribe((val: Activity[]) => subject.next(val));
-  return subject;
-};
 
 @Component({
   selector: 'activity-details',
-  templateUrl: './activity-details.component.html',
+  template: `
+    <label>{{ activity.id }}</label>
+    <label>{{ activity.title }}</label>
+    <label>{{ activity.description.brief }}</label>
+    <label>{{ activity.description.full }}</label>
+    <img src=" {{ activity.image }} " >
+
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="cancel.emit()">cancel</button>
+  `,
   styles: ['']
 })
-export class ActivityListComponent implements OnInit {
-    title = 'Actividades';
+export class ActivityDetailsComponent {
   
-    // activities = getObservable(this.store.collection("actividades")).getValue;
-    activities: Activity[] = [];
+  @Input()
+  activity!: Activity;
   
-    constructor(private store: AngularFirestore) { };
-  
-    ngOnInit(): void {
-      // getObservable(this.store.collection("actividades")).getValue;  
-  
-      this.store.collection("actividades").valueChanges({ idField: 'id' })
-        .subscribe(
-          {
-            next: (value: any[]) => {
-              console.log(value);
-              this.activities = value;
-            },
-            error: (err: any) => { },
-            complete: () => { },
-          }
-  
-        );
-    }
-  
-  
-  }
+  @Output() 
+  cancel = new EventEmitter<Activity>();
+}

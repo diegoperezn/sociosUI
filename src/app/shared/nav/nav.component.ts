@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-nav',
   template: `
     <mat-sidenav-container class="sidenav-container">
       <mat-sidenav #drawer class="sidenav" fixedInViewport
@@ -13,10 +13,9 @@ import { map, shareReplay } from 'rxjs/operators';
           [opened]="(isHandset$ | async) === false">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
-          
-          <a mat-list-item (click)="drawer.toggle()" routerLink="/actividades" routerLinkActive="activities">Actividades</a>
-          <a mat-list-item (click)="drawer.toggle()" routerLink="/socios" routerLinkActive="activities">Socios</a>
-          <a mat-list-item href="#">Link 3</a>
+          <!-- <a mat-list-item href="#">Link 1</a>
+          <a mat-list-item href="#">Link 2</a>
+          <a mat-list-item href="#">Link 3</a> -->
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
@@ -31,7 +30,7 @@ import { map, shareReplay } from 'rxjs/operators';
           </button>
           <span>socios</span>
         </mat-toolbar>
-        <router-outlet></router-outlet>
+        <h1>asdfasd</h1>
       </mat-sidenav-content>
     </mat-sidenav-container>
     
@@ -57,15 +56,14 @@ import { map, shareReplay } from 'rxjs/operators';
     
   `]
 })
-export class AppComponent {
- 
-  title = 'socios';
+export class NavComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  .pipe(
-    map(result => result.matches),
-    shareReplay()
-  );
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
-constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
 }

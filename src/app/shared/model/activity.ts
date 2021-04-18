@@ -1,4 +1,4 @@
-import { Description } from './Description';
+import { Description } from './description';
 
 export interface Activity {
     
@@ -6,6 +6,5 @@ export interface Activity {
     title: string;
     image: string;
     description: Description;
-
 
 }
