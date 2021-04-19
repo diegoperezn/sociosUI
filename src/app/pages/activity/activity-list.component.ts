@@ -7,14 +7,14 @@ import { map } from 'rxjs/operators';
 
 @Component({
   template: `
-    <div class="grid-container">
+    <!-- <div class="grid-container"> -->
       <h1 class="mat-h1">Actividades</h1>
-      <mat-grid-list [cols]="cols" rowHeight="550px">
-        <mat-grid-tile *ngFor="let activity of activities" [colspan]="1" [rowspan]="1">
-          <activity (edit)="editTask(activity)" [activity]="activity"></activity>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+      <!-- <mat-grid-list [cols]="cols">
+        <mat-grid-tile *ngFor="let activity of activities" [colspan]="1" [rowspan]="1"> -->
+          <activity *ngFor="let activity of activities"  (edit)="editTask(activity)" [activity]="activity"></activity>
+        <!-- </mat-grid-tile>
+      </mat-grid-list> -->
+    <!-- </div> -->
   `,
   styles: [`
 

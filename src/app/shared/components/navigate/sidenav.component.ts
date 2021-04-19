@@ -30,14 +30,14 @@ import { map, shareReplay } from 'rxjs/operators';
                 </button>
                 <span>socios</span>
                 </mat-toolbar>
-                <ng-content></ng-content>
+                <div class="container-page">
+                    <ng-content></ng-content>
+                </div>
             </mat-sidenav-content>
         </mat-sidenav-container>
     `,
     styles: [`
-        .container {
-            margin: 2%;
-        }
+
 
         .sidenav-container {
             height: 100%;
@@ -48,14 +48,22 @@ import { map, shareReplay } from 'rxjs/operators';
         }
         
         .sidenav .mat-toolbar {
-        background: inherit;
+            background: inherit;
         }
         
         .mat-toolbar.mat-primary {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
+
+        /* .mat-drawer-content {
+           
+            padding: 12px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        } */
     `]
 })
 

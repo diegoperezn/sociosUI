@@ -3,19 +3,21 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'configuration-list',
   template: `
-      <div layout="row" layout-xs="column">
-          <div flex>
-            I'm above on mobile, and to the left on larger devices.
-          </div>
-          <div flex>
-            I'm below on mobile, and to the right on larger devices.
-          </div>
-        </div>
-
-        <div layout="row" layout-wrap>
-        <div flex="80">80%</div>
-        <div flex="20">20%</div>
-    </div>
+<div>
+  <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+  <div >
+     <a href="#" mat-button>Align left</a>
+     <a href="#" mat-button>Align left</a>
+  </div>
+  <div  >
+     <a href="#" mat-button>Align center</a>
+     <a href="#" mat-button>Align center</a>
+  </div>
+  <div  >
+     <a href="#" mat-button>Align right</a>
+     <a href="#" mat-button>Align right</a>
+  </div>
+</div>
   `,
   styles: ['']
 })

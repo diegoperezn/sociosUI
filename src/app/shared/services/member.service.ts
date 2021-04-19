@@ -6,12 +6,13 @@ import { Member } from '../model/member';
 @Injectable({ providedIn: 'root' })
 export class MemberService {
 
+
     collection: string = "socios";
-    
+
     items: Observable<{ id: string; }[]>;
 
     constructor(private store: AngularFirestore) {
-        this.items = this.store.collection(this.collection).valueChanges({ idField: 'id',  });
+        this.items = this.store.collection(this.collection).valueChanges({ idField: 'id', });
     }
 
     list(): Observable<{ id: string; }[]> {
@@ -25,7 +26,11 @@ export class MemberService {
 
     get(id: string): Observable<{ id: string; } | undefined> {
         console.log('looking for member: ' + id)
-        return this.store.collection(this.collection).doc(id).valueChanges({ idField: 'id',  });
+        return this.store.collection(this.collection).doc(id).valueChanges({ idField: 'id', });
+    }
+
+    delete(id: string) {
+        this.store.collection(this.collection).doc(id).delete();
     }
 
 }

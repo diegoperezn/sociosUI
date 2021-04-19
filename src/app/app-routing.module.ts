@@ -1,6 +1,6 @@
 import { NgModule, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MemberListComponent } from './pages/member/member-list.component';
+import { MemberListComponent } from './pages/member/list/member-list.component';
 import { ActivityListComponent } from './pages/activity/activity-list.component';
 import { ConfiguracionComponent } from './pages/configuration/configuration.component';
 import { SocioEditComponent } from './pages/member/member-edition.component';

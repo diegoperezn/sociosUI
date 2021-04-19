@@ -7,7 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MemberListComponent } from './pages/member/member-list.component';
+import { MemberListComponent } from './pages/member/list/member-list.component';
 import { ActivityListComponent } from './pages/activity/activity-list.component';
 import { ConfiguracionComponent } from './pages/configuration/configuration.component';
 import { ActivityComponent } from './pages/activity/activity.component';
@@ -17,11 +17,6 @@ import { MatModule } from './shared/mat.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './shared/components/navigate/sidenav.component';
 import { MemberEditionComponent } from './pages/member/member-edition/member-edition.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -44,11 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LayoutModule,
     BrowserAnimationsModule,
     MatModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
+    
     ReactiveFormsModule
   ],
   providers: [],
